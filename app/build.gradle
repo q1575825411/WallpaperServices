@@ -15,28 +15,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    signingConfigs {
-        release {
-            storeFile file('/Users/sm2886/Desktop/签名/t3pro/jks/platform.jks')
-            storePassword 'sm2886'
-            keyAlias 't3pro_platform'
-            keyPassword 'sm2886'
-            enableV1Signing true
-            enableV2Signing true
-            enableV3Signing true
-            enableV4Signing true
-        }
-        debug {
-            storeFile file('/Users/sm2886/Desktop/签名/t3pro/jks/platform.jks')
-            storePassword 'sm2886'
-            keyAlias 't3pro_platform'
-            keyPassword 'sm2886'
-            enableV1Signing true
-            enableV2Signing true
-            enableV3Signing true
-            enableV4Signing true
-        }
-    }
+
 
     buildTypes {
         release {
