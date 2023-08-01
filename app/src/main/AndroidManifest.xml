@@ -4,6 +4,7 @@
     android:sharedUserId="android.uid.system">
 
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="com.example.permission.RECEIVE_MY_BROADCAST" />
 
     <application
         android:allowBackup="true"
@@ -33,10 +34,15 @@
             <intent-filter android:priority="999999">
 
                 <!-- 开机广播 -->
+                <action android:name="android.intent.action.CONFIGURATION_CHANGED" />
+                <action android:name="com.sunmi.baseservice.RECEIVE_SUNMI_PUSH"/>
+
+                <action android:name="com.example.MY_CUSTOM_ACTION"/>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.SCREEN_ON" />
                 <action android:name="android.intent.action.SCREEN_OFF" />
                 <action android:name="sunmi.intent.action.BOOT_COMPLETED" />
+
                 <action
                     android:name="android.net.conn.CONNECTIVITY_CHANGE"
                     tools:ignore="BatteryLife" />

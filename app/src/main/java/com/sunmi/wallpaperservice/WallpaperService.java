@@ -65,27 +65,32 @@ public class WallpaperService extends Service {
         imageListLight = CustomWallpaperFile.getImageList(imageListLight, 1);
         imageListDark = CustomWallpaperFile.getImageList(imageListDark, 2);
         WallpaperManager wallpaperManager = WallpaperManager.getInstance(getApplicationContext());
-
         contentObserver = new ContentObserver(new Handler(Looper.getMainLooper())) {
             @Override
             public void onChange(boolean selfChange, Uri uri) {
                 super.onChange(selfChange, uri);
                 if (uri != null && uri.toString().equals(CONTENT_URL) && !selfChange) {
-                    String oldPath = SystemPropertyUtil.getInstance().get(key);
-                    Log.e("tian you", "oldPath : " + oldPath);
-                    if (!"".equals(oldPath)) {
-                        int uiNightMode = Settings.Secure.getInt(getApplicationContext().getContentResolver(), "ui_night_mode", -1);
-                        index = fileInclude(oldPath);
-                        imageList = (uiNightMode == 1) ? imageListLight : imageListDark;
-                        String currentPath = imageList.get(index);
-                        SystemPropertyUtil.getInstance().setProperty(key, currentPath);
-                        Bitmap bitmap = BitmapFactory.decodeFile(currentPath);
-                        try {
-                            wallpaperManager.setBitmap(bitmap);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
+//                    Intent intent = new Intent();
+//                    intent.setPackage("com.test.test");
+//                    getApplicationContext().sendBroadcast(intent);
+//                    Log.e("tian you", "启动: ");
+//
+//                    String oldPath = SystemPropertyUtil.getInstance().get(key);
+//                    Log.e("tian you", "oldPath : " + oldPath);
+//                    if (!"".equals(oldPath)) {
+//                        int uiNightMode = Settings.Secure.getInt(getApplicationContext().getContentResolver(), "ui_night_mode", -1);
+//                        index = fileInclude(oldPath);
+//                        imageList = (uiNightMode == 1) ? imageListLight : imageListDark;
+//                        String currentPath = imageList.get(index);
+//                        SystemPropertyUtil.getInstance().setProperty(key, currentPath);
+//                        Bitmap bitmap = BitmapFactory.decodeFile(currentPath);
+//                        try {
+//                            wallpaperManager.setBitmap(bitmap);
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+//
+//                    }
                 }
             }
 
