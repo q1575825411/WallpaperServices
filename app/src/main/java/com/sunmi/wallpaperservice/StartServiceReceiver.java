@@ -12,8 +12,8 @@ public class StartServiceReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-//        Intent serviceIntent = new Intent(context, WallpaperService.class);
-//        context.startService(serviceIntent);
-        Log.e("tian you", "onReceive: tian you " );
+        Intent serviceIntent = new Intent(context, WallpaperService.class);
+        context.startService(serviceIntent);
+        Log.e("tian you", "onReceive: tian you ");
     }
 }
